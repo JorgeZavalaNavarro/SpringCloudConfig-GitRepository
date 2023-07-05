@@ -1,0 +1,41 @@
+
+## No acepta los acentos en los comentarios
+server:
+  port: 8092
+  error:
+    include-message: always
+
+spring:
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:mysql://mysqlcentral:3306/storeneo_usuarios?zeroDateTimeBehavior=convertToNull
+    driverClassName: com.mysql.jdbc.Driver
+    platform: mysql
+    username: werosoft_root
+    password: werosoft_root
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      # ddl-auto: update
+    # database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    # physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: false
+        format_sql: false
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
+
+
